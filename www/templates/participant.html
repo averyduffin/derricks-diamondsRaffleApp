@@ -1,0 +1,35 @@
+<ion-view view-title="Participants">
+  <ion-content>
+    <div class="card">
+		  <div class="item text-center item-divider">
+			Sale Summary
+		  </div>
+		  <div class="item">
+			Date: {{participant.date}}
+		  </div>
+		  <div class="item">
+			Name: {{participant.name}}
+		  </div>
+		  <div class="item">
+			Phone: {{participant.phone}}
+		  </div>
+		  <div class="item">
+			Email: {{participant.email}}
+		  </div>
+		  <div class="item">
+			Address: {{participant.address}}
+		  </div>
+		  <div class="item">
+			Number Of Tickets: {{participant.numberOfTickets}}
+		  </div>
+		  <div  ng-repeat="ticket in participantInfo.tickets track by $index"  class="item">
+			Ticket: {{ticket}}
+		  </div>
+		  <div class="item">
+			Total Due: ${{participant.totalPaid}}.00
+		</div>
+		<div class="item">
+			Paid with: <span ng-if="participant.card">Card</span><span ng-if="participant.cash">Cash</span>
+		</div>
+  </ion-content>
+</ion-view>
