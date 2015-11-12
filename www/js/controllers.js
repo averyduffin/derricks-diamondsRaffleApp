@@ -45,10 +45,10 @@ angular.module('starter.controllers', ['starter.services'])
 
 .controller('ParticipantCtrl', function($scope, $stateParams, Participants) {
 	//console.log($stateParams.participantId)
-	Participants.get({personId: $stateParams.participantId}).$promise.then(function(data) {
+	//Participants.get({personId: $stateParams.participantId}).$promise.then(function(data) {
 		//console.log(data);
-		$scope.participant = data;
-    });
+		//$scope.participant = data;
+    //});
 })
 
 /*put in temporarirly*/
@@ -87,9 +87,9 @@ angular.module('starter.controllers', ['starter.services'])
 
 
 .controller('AllParticipantsCtrl', function($scope, Participants ) {
-  Participants.get().$promise.then(function(data) {
-      $scope.participants = data.participants;
-    });
+  //Participants.get().$promise.then(function(data) {
+    //  $scope.participants = data.participants;
+    //});
   
 })
 
@@ -131,12 +131,12 @@ angular.module('starter.controllers', ['starter.services'])
 	$scope.finish = function(){
 		$scope.pageState = 'final';
 		//console.log($scope.participantInfo)
-		$scope.participantInfo.$create(function(data){
+		//$scope.participantInfo.$create(function(data){
 			//console.log("PASSED")
 			//console.log(data);
-		}, function(err){
+		//}, function(err){
 			//console.log(err);
-		});
+		//});
 	}
 	
 	$scope.startOver = function(){
