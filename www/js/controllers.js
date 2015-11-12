@@ -31,7 +31,7 @@ angular.module('starter.controllers', ['starter.services'])
   
   // Perform the login action when the user submits the login form
   $scope.doLogin = function() {
-    console.log('Doing login', $scope.loginData);
+    //console.log('Doing login', $scope.loginData);
 
     // Simulate a login delay. Remove this and replace with your login
     // code if using a login system
@@ -44,40 +44,47 @@ angular.module('starter.controllers', ['starter.services'])
 })
 
 .controller('ParticipantCtrl', function($scope, $stateParams, Participants) {
-	console.log($stateParams.participantId)
+	//console.log($stateParams.participantId)
 	Participants.get({personId: $stateParams.participantId}).$promise.then(function(data) {
-		console.log(data);
+		//console.log(data);
 		$scope.participant = data;
     });
 })
 
 /*put in temporarirly*/
-.controller("ExampleController", function($scope, $cordovaSQLite) {
- 
+.controller("ExampleController", function($scope, $cordovaSQLite, $ionicPlatform) {
+	
     $scope.insert = function(firstname, lastname) {
+		//console.log("THis was pressed");
         var query = "INSERT INTO people (firstname, lastname) VALUES (?,?)";
-        $cordovaSQLite.execute(db, query, [firstname, lastname]).then(function(res) {
-            console.log("INSERT ID -> " + res.insertId);
+      
+		$cordovaSQLite.execute(db, query, [firstname, lastname]).then(function(res) {
+            //console.log("INSERT ID -> " + res.insertId);
         }, function (err) {
-            console.error(err);
+			//console.log("THIS WAS AN ERROR FOUND WHEN INSERTING");
+            //console.error(err);
         });
+
+
     }
 	$scope.name = ""
     $scope.select = function(lastname) {
+		//console.log('here')
         var query = "SELECT firstname, lastname FROM people WHERE lastname = ?";
         $cordovaSQLite.execute(db, query, [lastname]).then(function(res) {
             if(res.rows.length > 0) {
-                console.log("SELECTED -> " + res.rows.item(0).firstname + " " + res.rows.item(0).lastname);
+                //console.log("SELECTED -> " + res.rows.item(0).firstname + " " + res.rows.item(0).lastname);
 				$scope.name = res.rows.item(0).firstname;
             } else {
-                console.log("No results found");
+                //console.log("No results found");
             }
         }, function (err) {
-            console.error(err);
+            //console.error(err);
         });
     }
  
 })
+
 
 .controller('AllParticipantsCtrl', function($scope, Participants ) {
   Participants.get().$promise.then(function(data) {
@@ -123,12 +130,12 @@ angular.module('starter.controllers', ['starter.services'])
 	}
 	$scope.finish = function(){
 		$scope.pageState = 'final';
-		console.log($scope.participantInfo)
+		//console.log($scope.participantInfo)
 		$scope.participantInfo.$create(function(data){
-			console.log("PASSED")
-			console.log(data);
+			//console.log("PASSED")
+			//console.log(data);
 		}, function(err){
-			console.log(err);
+			//console.log(err);
 		});
 	}
 	
