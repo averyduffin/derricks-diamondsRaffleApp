@@ -1,0 +1,24 @@
+<ion-pane>
+<ion-header-bar class="bar-dark">
+		<img src="img/logoShadow.png" class="logo-header-bar" >
+		<img src="img/name3.png" class="logo-name-header-bar" >
+      </ion-header-bar>
+	  <ion-content class="background">
+    <ion-list>
+      <ion-item ng-repeat="participant in participants" href="#/part/{{participant.id}}">
+        {{participant.name}}
+      </ion-item>
+    </ion-list>
+  </ion-content>
+  <div class="tabs tabs-icon-only">
+  <a class="tab-item" href="#/holder">
+    <i class="icon ion-edit"></i>
+  </a>
+  <a class="tab-item" href="#/all">
+    <i class="icon ion-navicon-round"></i>
+  </a>
+  <a class="tab-item" href="#/login">
+    <i class="icon ion-home" ></i>
+  </a>
+</div>
+</ion-pane>

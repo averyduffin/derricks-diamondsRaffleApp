@@ -1,0 +1,61 @@
+<ion-pane>
+<ion-header-bar class="bar-dark">
+		<img src="img/logoShadow.png" class="logo-header-bar" >
+		<img src="img/name3.png" class="logo-name-header-bar" >
+      </ion-header-bar>
+	  <ion-content class="background">
+	  <div ng-show="error" class="card error">
+		<div class="item item-text-wrap errorText">
+			{{error}}
+		</div>
+	</div>
+		  <form ng-submit="toTickets()">
+		  <div class="list card">
+		  <div class="item item-divider">
+			Ticket Holder Information
+			</div>
+			<label class="item item-input">
+			  <input type="text" ng-model="participant.name" placeholder="Full Name *">
+			</label>
+			<label class="item item-input">
+			  <input type="text" ng-model="participant.phone" placeholder="Phone Number *">
+			</label>
+			<label class="item item-input">
+			  <input type="text" ng-model="participant.email" placeholder="Email *">
+			</label>
+			<div class="item item-divider">
+				Address
+			</div>
+			<label class="item item-input item-stacked-label">
+			  <input type="text" ng-model="participant.street" placeholder="Street">
+			</label>
+			<label class="item item-input">
+			  <input type="text" ng-model="participant.city" placeholder="City">
+			</label>
+			<label class="item item-input">
+			  <input type="text" ng-model="participant.state" placeholder="State">
+			</label>
+			<label class="item item-input">
+			  <input type="text" ng-model="participant.zip" placeholder="Zip Code">
+			</label>
+			<label class="item item-input">
+			  <input type="text" ng-model="participant.numberOfTickets" placeholder="Number Of Tickets *">
+			</label>
+			<label class="item">
+			  <button class="button button-block button-positive" type="submit">Next</button>
+			</label>
+		  </div>
+		</form>
+	  </ion-content>
+	  <div class="tabs tabs-icon-only">
+  <a class="tab-item" href="#/holder">
+    <i class="icon ion-edit"></i>
+  </a>
+  <a class="tab-item" href="#/all">
+    <i class="icon ion-navicon-round"></i>
+  </a>
+  <a class="tab-item" href="#/login">
+    <i class="icon ion-home" ></i>
+  </a>
+</div>
+</ion-pane>

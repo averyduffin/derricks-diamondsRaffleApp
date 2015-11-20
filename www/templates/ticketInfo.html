@@ -1,0 +1,61 @@
+<ion-pane>
+<ion-header-bar class="bar-dark">
+		<img src="img/logoShadow.png" class="logo-header-bar" >
+		<img src="img/name3.png" class="logo-name-header-bar" >
+      </ion-header-bar>
+	  <ion-content class="background">
+	  <div ng-show="error" class="card error">
+		<div class="item item-text-wrap errorText">
+			{{error}}
+		</div>
+	</div>
+	  <form ng-submit="toConfirmation()">
+      <div class="list card">
+	  <div class="item item-divider">
+		Ticket Holder Information
+		</div>
+		<label ng-repeat="ticket in participant.tickets track by $index" class="item item-input">
+          <input type="text" ng-model="participant.tickets[$index].raffleNumber" placeholder="Ticket">
+        </label>
+		<div class="item">
+			Total Due: ${{participant.totalPaid}}.00
+		</div>
+		<div class="item item-divider">
+			Payment Type
+		</div>
+		<label class="item item-checkbox">
+          <label class="checkbox">
+			<input type="checkbox" ng-model="participant.cash">
+		  </label>
+			<span class="payment-label">
+			Cash
+			</span>
+			<i class="icon form-icons ion-cash"></i>
+        </label>
+		<label class="item item-checkbox">
+          <label class="checkbox">
+			<input type="checkbox" ng-model="participant.card">
+		  </label>
+		  <span class="payment-label">
+			Card
+			</span>
+			<i class="icon form-icons ion-card"></i>
+        </label>
+        <label class="item">
+          <button class="button button-block button-positive" type="submit">Review</button>
+        </label>
+      </div>
+    </form>
+	  </ion-content>
+	  <div class="tabs tabs-icon-only">
+  <a class="tab-item" href="#/holder">
+    <i class="icon ion-edit"></i>
+  </a>
+  <a class="tab-item" href="#/all">
+    <i class="icon ion-navicon-round"></i>
+  </a>
+  <a class="tab-item" href="#/login">
+    <i class="icon ion-home" ></i>
+  </a>
+</div>
+</ion-pane>

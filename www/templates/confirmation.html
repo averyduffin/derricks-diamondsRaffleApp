@@ -1,0 +1,53 @@
+<ion-pane>
+<ion-header-bar class="bar-dark">
+		<img src="img/logoShadow.png" class="logo-header-bar" >
+		<img src="img/name3.png" class="logo-name-header-bar" >
+      </ion-header-bar>
+	  <ion-content class="background">
+	  <div class="card">
+		  <div class="item text-center item-divider">
+			Sale Summary
+		  </div>
+		  <div class="item">
+			Name: {{participant.name}}
+		  </div>
+		  <div class="item">
+			Phone: {{participant.phone}}
+		  </div>
+		  <div class="item">
+			Email: {{participant.email}}
+		  </div>
+		  <div class="item">
+			Address: {{participant.street}} {{participant.city}} {{participant.state}} {{participant.zip}}
+		  </div>
+		  <div class="item">
+			Number Of Tickets: {{participant.numberOfTickets}}
+		  </div>
+		  <div  ng-repeat="ticket in participant.tickets track by $index"  class="item">
+			Ticket: {{ticket.raffleNumber}}
+		  </div>
+		  <div class="item">
+			Total Due: ${{participant.totalPaid}}.00
+		</div>
+		<div class="item">
+			Paid with: <span ng-if="participant.card">Card</span><span ng-if="participant.cash">Cash</span>
+		</div>
+	<label class="item">
+	<button ng-click="finish()" class="button button-full button-positive">
+			Complete Payment
+		</button>
+		</label>
+	</div>
+	  </ion-content>
+	  <div class="tabs tabs-icon-only">
+  <a class="tab-item" href="#/holder">
+    <i class="icon ion-edit"></i>
+  </a>
+  <a class="tab-item" href="#/all">
+    <i class="icon ion-navicon-round"></i>
+  </a>
+  <a class="tab-item" href="#/login">
+    <i class="icon ion-home" ></i>
+  </a>
+</div>
+</ion-pane>
