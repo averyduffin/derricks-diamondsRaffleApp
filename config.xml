@@ -27,8 +27,6 @@
     <!--<plugin name="cordova-sqlite-storage" spec="https://github.com/brodysoft/Cordova-SQLitePlugin.git" />
     <plugin name="me.rahul.plugins.sqlDB" spec="https://github.com/an-rahulpandey/cordova-plugin-dbcopy.git" />
     <plugin name="org.apache.cordova.network-information" spec="~0.2.15" />-->
-	<plugin name="cordova-sqlite-storage" spec="n/a" />
-	<plugin name="me.rahul.plugins.sqlDB" spec="n/a" />
-	<plugin name="org.apache.cordova.network-information" spec="n/a" />
+
 
 </widget>
