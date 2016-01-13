@@ -1,7 +1,7 @@
 <ion-pane>
-<ion-header-bar class="bar-dark">
-		<img src="img/logoShadow.png" class="logo-header-bar" >
-		<img src="img/name3.png" class="logo-name-header-bar" >
+<ion-header-bar class="bar-stable">
+		 <a ng-click="goBack()" class="button icon-left ion-chevron-left button-clear button-dark"></a>
+		<h1 class="title">Tickets</h1>
       </ion-header-bar>
 	  <ion-content class="background">
 	  <div ng-show="error" class="card error">
@@ -11,20 +11,33 @@
 	</div>
 	  <form ng-submit="toConfirmation()">
       <div class="list card">
-	  <div class="item item-divider">
-		Ticket Holder Information
-		</div>
+	  
 		<label ng-repeat="ticket in participant.tickets track by $index" class="item item-input">
           <input type="text" ng-model="participant.tickets[$index].raffleNumber" placeholder="Ticket">
         </label>
 		<div class="item">
 			Total Due: ${{participant.totalPaid}}.00
 		</div>
-		<div class="item item-divider">
+		</div>
+		<div class="list card">
+		<div class="item">
 			Payment Type
 		</div>
 		<label class="item item-checkbox">
-          <label class="checkbox">
+          <label class="checkbox checkbox-dark">
+			<input type="checkbox" ng-model="participant.check">
+		  </label>
+			<span class="payment-label">
+			Check
+			</span>
+			
+			
+        </label>
+		<label ng-if="participant.check == true" class="item item-input">
+			<input type="text" ng-model="participant.checkNum" placeholder="Check #">
+		</label>
+		<label class="item item-checkbox">
+          <label class="checkbox checkbox-dark">
 			<input type="checkbox" ng-model="participant.cash">
 		  </label>
 			<span class="payment-label">
@@ -33,7 +46,7 @@
 			<i class="icon form-icons ion-cash"></i>
         </label>
 		<label class="item item-checkbox">
-          <label class="checkbox">
+          <label class="checkbox checkbox-dark">
 			<input type="checkbox" ng-model="participant.card">
 		  </label>
 		  <span class="payment-label">
@@ -41,6 +54,7 @@
 			</span>
 			<i class="icon form-icons ion-card"></i>
         </label>
+		
         <label class="item">
           <button class="button button-block button-positive" type="submit">Review</button>
         </label>
@@ -56,6 +70,9 @@
   </a>
   <a class="tab-item" href="#/login">
     <i class="icon ion-home" ></i>
+  </a>
+<a class="tab-item" href="#/upload">
+	<i class="icon ion-android-upload" ></i>
   </a>
 </div>
 </ion-pane>

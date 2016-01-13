@@ -1,0 +1,26 @@
+
+<div class="card card-style background">
+	 <label class="item-text-wrap background" ng-click="showItems($event)">
+			   <div class="row row-center">
+					<div class="col">
+						<i class="icon ion-location"></i>
+					</div>
+					<div class="col col-20 sign-in-text-loc">
+						Location
+					</div>
+					<div class="col col-67 ">
+					<span class="fancy-select-text">
+						{{text}}
+					</span>
+					</div>
+					<div class="col">
+							<i class="icon ion-arrow-down-b"></i>
+					</div>
+					<span class="item-note">
+						{{noteText}}
+						<img class="{{noteImgClass}}" ng-if="noteImg != ''" src="{{noteImg}}" />
+					</span>
+				</div>
+	</label>
+</div>
+

@@ -1,7 +1,7 @@
 <ion-pane>
-<ion-header-bar class="bar-dark">
-		<img src="img/logoShadow.png" class="logo-header-bar" >
-		<img src="img/name3.png" class="logo-name-header-bar" >
+<ion-header-bar class="bar-stable">
+		
+		<h1 class="title">{{participant.name}} : {{participant.date}}</h1>
       </ion-header-bar>
 	  <ion-content class="background">
     <div class="card">
@@ -12,7 +12,7 @@
 			Name: {{participant.name}}
 		  </div>
 		  <div class="item">
-			Phone: {{participant.phone}}
+			Phone: {{participant.phone | tel}}
 		  </div>
 		  <div class="item">
 			Email: {{participant.email}}
@@ -28,6 +28,21 @@
 		</div>
 		</div>
 		
+		<div class="card">
+		  <div class="item" ng-repeat="ticket in tickets">
+			Ticket Number: {{ticket}}
+		  </div>
+		</div>
+		
+		<div class="card">
+		  <div class="item">
+			Sales Rep: {{ses.login.salesRep}}
+		  </div>
+		  <div class="item">
+			Location: {{ses.login.location}}
+		  </div>
+		</div>
+		
   </ion-content>
   <div class="tabs tabs-icon-only">
   <a class="tab-item" href="#/holder">
@@ -38,6 +53,9 @@
   </a>
   <a class="tab-item" href="#/login">
     <i class="icon ion-home" ></i>
+  </a>
+  <a class="tab-item" href="#/upload">
+	<i class="icon ion-android-upload" ></i>
   </a>
 </div>
 </ion-pane>

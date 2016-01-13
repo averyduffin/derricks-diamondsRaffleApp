@@ -8,11 +8,13 @@
 
 	  <div class="content-full">
 	  <div class="row row-top logo-header">
-	 <img src="img/logoShadow.png" class="logo" >
+	 
 	 </div>
 	 <div class="row row-center ">
 	 <div class="col">
-	  <img src="img/name3.png" class="logo-comp-names" >
+	  <img src="img/DD_base.png" class="logo" >
+	  <img src="img/title2.png" class="logo-name" >
+		<img src="img/supporters2.png" class="logo-comp-names" >
       </div>
 	  </div>
 	  <div>
@@ -35,31 +37,19 @@
 			
 			</div>
 		</div>
-		<div class="card card-style background">
-				 <label class="item-select background">
-					 <div class="row row-center">
-						<div class="col">
-							<i class="icon ion-location"></i>
-						</div>
-						<div class="col col-20 sign-in-text-loc">
-							Location
-						</div>
-						<div class="col col-67 ">
-							<select ng-model="selectedValue" class="select-text">
-								<option>{{selectedValue}}</option>
-								<option ng-repeat="loc in locations">{{loc}}</option>
-							</select>
-						</div>
-						<div class="col">
-							<i class="icon ion-arrow-down-b"></i>
-						</div>
-					 </div>
-				  </label>
-				  </div>
-				  
-				  
+				 
+				<fancy-select
+                              header-text="Locations"
+                              allow-empty='false'
+                              value="selectedValue"
+                              text="selectedValue"
+                              items="locations">
+                </fancy-select>
 					<button ng-click="loginAction()" class="button button-block button-positive" type="submit">Begin Session</button>
 				
 
 	</div>
 </ion-pane>
+
+
+         

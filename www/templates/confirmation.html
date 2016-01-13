@@ -1,18 +1,15 @@
 <ion-pane>
-<ion-header-bar class="bar-dark">
-		<img src="img/logoShadow.png" class="logo-header-bar" >
-		<img src="img/name3.png" class="logo-name-header-bar" >
+<ion-header-bar class="bar-stable">
+		 <a ng-click="goBack()" class="button icon-left ion-chevron-left button-clear button-dark"></a>
+		<h1 class="title">Sale Summary</h1>
       </ion-header-bar>
 	  <ion-content class="background">
 	  <div class="card">
-		  <div class="item text-center item-divider">
-			Sale Summary
-		  </div>
 		  <div class="item">
 			Name: {{participant.name}}
 		  </div>
 		  <div class="item">
-			Phone: {{participant.phone}}
+			Phone: {{participant.phone | tel}}
 		  </div>
 		  <div class="item">
 			Email: {{participant.email}}
@@ -30,7 +27,7 @@
 			Total Due: ${{participant.totalPaid}}.00
 		</div>
 		<div class="item">
-			Paid with: <span ng-if="participant.card">Card</span><span ng-if="participant.cash">Cash</span>
+			Paid with: <span ng-if="participant.card">Card</span><span ng-if="participant.cash">Cash</span><span ng-if="participant.check">Check #{{participant.checkNum}}</span>
 		</div>
 	<label class="item">
 	<button ng-click="finish()" class="button button-full button-positive">
@@ -48,6 +45,9 @@
   </a>
   <a class="tab-item" href="#/login">
     <i class="icon ion-home" ></i>
+  </a>
+ <a class="tab-item" href="#/upload">
+	<i class="icon ion-android-upload" ></i>
   </a>
 </div>
 </ion-pane>

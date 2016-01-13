@@ -1,20 +1,25 @@
 <ion-pane>
 <ion-header-bar class="bar-stable">
 		
-		<h1 class="title">Sale Complete</h1>
+		<h1 class="title">Upload</h1>
       </ion-header-bar>
 	  <ion-content class="background">
-	  <div class="card">
-		  <div class="item item-text-wrap">
-			Thank you for your purchase of raffle tickets. Your donation will be used to support childhood cancer.
+	  
+		<div class="row">
+			<div class="col">
+				<div ng-if="isSpin" class="center">
+					<ion-spinner icon="crescent"></ion-spinner>
+				</div>
+			  </div>
 		  </div>
-		</div>
-		<div class="card">
-		<a href="#/holder" class="button button-block button-positive">
-			New Sale
-		</a>
-	</div>
-
+		  <div class="row">
+			<div class="col">
+				<div class="center">
+					<span>{{syncTexts}}</span>
+				</div>
+				
+			  </div>
+		  </div>
 	  </ion-content>
 	  <div class="tabs tabs-icon-only">
   <a class="tab-item" href="#/holder">
@@ -26,7 +31,7 @@
   <a class="tab-item" href="#/login">
     <i class="icon ion-home" ></i>
   </a>
-<a class="tab-item" href="#/upload">
+  <a class="tab-item" href="#/upload">
 	<i class="icon ion-android-upload" ></i>
   </a>
 </div>

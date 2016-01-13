@@ -1,7 +1,8 @@
 <ion-pane>
-<ion-header-bar class="bar-dark">
-		<img src="img/logoShadow.png" class="logo-header-bar" >
-		<img src="img/name3.png" class="logo-name-header-bar" >
+<ion-header-bar class="bar-stable">
+		
+		<h1 class="title">Purchaser Information</h1>
+		
       </ion-header-bar>
 	  <ion-content class="background">
 	  <div ng-show="error" class="card error">
@@ -11,23 +12,20 @@
 	</div>
 		  <form ng-submit="toTickets()">
 		  <div class="list card">
-		  <div class="item item-divider">
-			Ticket Holder Information
-			</div>
+		  
 			<label class="item item-input">
 			  <input type="text" ng-model="participant.name" placeholder="Full Name *">
 			</label>
 			<label class="item item-input">
-			  <input type="text" ng-model="participant.phone" placeholder="Phone Number *">
+				<input class="input-phone" type='tel' phone-input ng-model="participant.phone" placeholder="Phone Number *"/>
 			</label>
 			<label class="item item-input">
 			  <input type="text" ng-model="participant.email" placeholder="Email *">
 			</label>
-			<div class="item item-divider">
-				Address
 			</div>
+			<div class="list card">
 			<label class="item item-input item-stacked-label">
-			  <input type="text" ng-model="participant.street" placeholder="Street">
+			  <input type="tel" ng-model="participant.street" placeholder="Street">
 			</label>
 			<label class="item item-input">
 			  <input type="text" ng-model="participant.city" placeholder="City">
@@ -36,11 +34,15 @@
 			  <input type="text" ng-model="participant.state" placeholder="State">
 			</label>
 			<label class="item item-input">
-			  <input type="text" ng-model="participant.zip" placeholder="Zip Code">
+			  <input type="tel" ng-model="participant.zip" placeholder="Zip Code">
 			</label>
+			</div>
+			<div class="list card">
 			<label class="item item-input">
-			  <input type="text" ng-model="participant.numberOfTickets" placeholder="Number Of Tickets *">
+			  <input type="tel" ng-model="participant.numberOfTickets" placeholder="Number Of Tickets *">
 			</label>
+			</div>
+			<div class="list card">
 			<label class="item">
 			  <button class="button button-block button-positive" type="submit">Next</button>
 			</label>
@@ -56,6 +58,9 @@
   </a>
   <a class="tab-item" href="#/login">
     <i class="icon ion-home" ></i>
+  </a>
+  <a class="tab-item" href="#/upload">
+	<i class="icon ion-android-upload" ></i>
   </a>
 </div>
 </ion-pane>

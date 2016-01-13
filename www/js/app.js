@@ -1,22 +1,16 @@
-// Ionic Starter App
 
-// angular.module is a global place for creating, registering and retrieving Angular modules
-// 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
-// the 2nd parameter is an array of 'requires'
-var ionicApp = angular.module('starter', ['ionic', 'ngResource', 'ngCordova', 'starter.controllers', 'starter.services']);
+var ionicApp = angular.module('starter', ['ionic', 'ngResource', 'ngCordova', 'starter.controllers', 'starter.services', 'starter.syncing', 'starter.directives', 'starter.filters']);
 
 ionicApp.run(function($ionicPlatform, $cordovaSQLite) {
   $ionicPlatform.ready(function() {
-    // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
-    // for form inputs)
     if(window.StatusBar) {
       StatusBar.styleDefault();
     }
 	console.log("WORKED!!!");
 	if (window.cordova) {
 		console.log('device')
-		//db = $cordovaSQLite.openDB("raffle.db");
-		db = window.openDatabase("raffle.db", '1', 'my', 1024 * 1024 * 100);
+		db = $cordovaSQLite.openDB("raffle.db");
+		//db = window.openDatabase("raffle.db", '1', 'my', 1024 * 1024 * 100);
 	}else{
 		console.log('browser')
 		db = window.openDatabase("raffle.db", '1', 'my', 1024 * 1024 * 100); // browser
@@ -25,41 +19,17 @@ ionicApp.run(function($ionicPlatform, $cordovaSQLite) {
     //$cordovaSQLite.execute(db, "CREATE TABLE IF NOT EXISTS people (id integer primary key, firstname text, lastname text)");
 	createDatabaseTables($cordovaSQLite);
 	console.log("table Was created!!!!");
-
-	/*var query = "INSERT INTO location (locationname) VALUES (?)";
-	locations = 
-	[
-		"test",
-		"carwash",
-		"Nothing",
-		"Egypt",
-		"houston",
-		"Norway",
-		"England",
-	]
-	angular.forEach(locations, function(loc) {
-		$cordovaSQLite.execute(db, query, [loc]).then(function(res) {
-		}, function (err) {
-			console.error(err);
-		});
-	});*/
   });
 });
 
 ionicApp.config(function($stateProvider, $urlRouterProvider, $resourceProvider, $ionicConfigProvider) {
-	//$resourceProvider.defaults.useXDomain = true;
-	//delete $resourceProvider.defaults.headers.common['X-Requested-With'];
+
 	$ionicConfigProvider.views.maxCache(0);
   $stateProvider
   .state('login', {
     url: '/login',
     templateUrl: 'templates/login.html',
     controller: 'loginController'
-  })
-  .state('location', {
-    url: '/location',
-    templateUrl: 'templates/location.html',
-    controller: 'locationController'
   })
   
   .state('holder', {
@@ -92,12 +62,26 @@ ionicApp.config(function($stateProvider, $urlRouterProvider, $resourceProvider, 
     templateUrl: 'templates/part.html',
     controller: 'viewParticipant'
   })
+  .state('sync', {
+    url: '/sync',
+    templateUrl: 'templates/sync.html',
+    controller: 'syncParticipant'
+  })
+  .state('upload', {
+    url: '/upload',
+    templateUrl: 'templates/upload.html',
+    controller: 'uploadParticipant'
+  })
   ;
-  
-  // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/login');
+  $urlRouterProvider.otherwise('/sync');
 });
 
+/*
+ * function creates all the database tables if there isn't an existing table.
+ * param: cordovalite, cordova database javascript object that creates the database.
+ * return: none
+ */
+ 
 function createDatabaseTables(cordovalite){
 	cordovalite.execute(db, "CREATE TABLE IF NOT EXISTS location (\
 									locationid integer primary key AUTOINCREMENT,\
@@ -126,6 +110,9 @@ function createDatabaseTables(cordovalite){
 									address text, \
 									totalPaid integer, \
 									date text, \
+									checkNum text, \
+									isDeleted integer, \
+									isUploaded integer, \
 									participantsession_id integer, \
 									FOREIGN KEY(participantsession_id) REFERENCES session(sessionid) \
 									)");
@@ -134,6 +121,15 @@ function createDatabaseTables(cordovalite){
 									raffleNumber TEXT, \
 									raffleTicketparticipant_id integer, \
 									FOREIGN KEY(raffleTicketparticipant_id) REFERENCES participant(participantid) \
+									)");
+	cordovalite.execute(db, "CREATE TABLE IF NOT EXISTS Sync ( \
+									syncid integer primary key AUTOINCREMENT,\
+									date text \
+									)");
+									
+	cordovalite.execute(db, "CREATE TABLE IF NOT EXISTS locations ( \
+									locid integer primary key AUTOINCREMENT,\
+									location text \
 									)");
 }
 
