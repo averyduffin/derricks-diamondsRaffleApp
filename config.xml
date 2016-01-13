@@ -15,7 +15,7 @@
     </author>
     <content src="index.html" />
     <access origin="*" />
-	<preference name="android-minSdkVersion" value="14" />
+
     <preference name="webviewbounce" value="false" />
     <preference name="UIWebViewBounce" value="false" />
     <preference name="DisallowOverscroll" value="true" />
@@ -24,7 +24,11 @@
     <feature name="StatusBar">
         <param name="ios-package" onload="true" value="CDVStatusBar" />
     </feature>
-    <plugin name="cordova-sqlite-storage" spec="https://github.com/brodysoft/Cordova-SQLitePlugin.git" />
+    <!--<plugin name="cordova-sqlite-storage" spec="https://github.com/brodysoft/Cordova-SQLitePlugin.git" />
     <plugin name="me.rahul.plugins.sqlDB" spec="https://github.com/an-rahulpandey/cordova-plugin-dbcopy.git" />
-    <plugin name="org.apache.cordova.network-information" spec="~0.2.15" />
+    <plugin name="org.apache.cordova.network-information" spec="~0.2.15" />-->
+	<plugin name="cordova-sqlite-storage" spec="n/a" />
+	<plugin name="me.rahul.plugins.sqlDB" spec="n/a" />
+	<plugin name="org.apache.cordova.network-information" spec="n/a" />
+
 </widget>
