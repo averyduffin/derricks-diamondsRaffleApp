@@ -24,8 +24,8 @@
     <feature name="StatusBar">
         <param name="ios-package" onload="true" value="CDVStatusBar" />
     </feature>
-    <plugin name="cordova-sqlite-storage"  />
-    <plugin name="me.rahul.plugins.sqlDB" />
+    <plugin name="com.brodysoft.sqliteplugin" spec="1.0.6" source="pgb" />
+    <plugin name="me.rahul.plugins.sqldb" spec="1.0.0" source="pgb" />
     <plugin name="org.apache.cordova.network-information" spec="~0.2.15" />
 
 
